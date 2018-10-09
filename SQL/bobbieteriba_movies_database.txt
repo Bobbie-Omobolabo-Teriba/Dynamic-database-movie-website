@@ -1,0 +1,93 @@
+
+DROP DATABASE IF EXISTS bobbieteriba_movies;
+CREATE DATABASE bobbieteriba_movies;
+USE bobbieteriba_movies-- MySQL command
+;
+CREATE TABLE actor(
+  actorID	   INT(11)        NOT NULL   AUTO_INCREMENT,
+  actorName 	   VARCHAR(40)    NOT NULL,
+  country          VARCHAR(30)    NOT NULL,
+  birthDate        DATE           NOT NULL, 
+  PRIMARY KEY (actorID)
+);
+CREATE TABLE movie(
+  movieID 	   INT(11)         NOT NULL   AUTO_INCREMENT,
+  movieName        VARCHAR(50)     NOT NULL,
+  movieGenre       VARCHAR(20)     NOT NULL,
+  movieLength      DECIMAL(10,2)   NOT NULL,
+  movieRating      DOUBLE(10,2)    NOT NULL,
+  year             VARCHAR(20)     NOT NULL,
+  PRIMARY KEY (movieID)
+);
+CREATE TABLE movie_actors(
+  movieID 	   INT(11),
+  actorID	   INT(11),
+  PRIMARY KEY (movieID, actorID),
+  FOREIGN KEY (actorID) REFERENCES actor(actorID),
+  FOREIGN KEY (movieID) REFERENCES movie(movieID) 
+);
+CREATE TABLE images( 
+imageID 	   INT(11) 	   NOT NULL   AUTO_INCREMENT, 
+imageName          VARCHAR(50)     NOT NULL,
+image		   LONGBLOB 	   NOT NULL, 
+PRIMARY KEY(imageID) 
+);
+
+INSERT INTO actor(actorName, country, birthDate) VALUES
+('Al Pacino','America','2017-12-12'),
+('Samuel L. Jackson','America','2017-12-12'),
+('Robert De Niro','America','2017-12-12'),
+('Brad Pitt','America','2017-12-12'),
+('George Clooney','America','2017-12-12'),
+('Viola Davis','America','2017-12-12'),
+('Natalie Portman','Isreal','2017-12-12'),
+('Will Smith','America','2017-12-12'),
+('Christoph Waltz','Austria','2017-12-12'),
+('Denzel Washington','America','2017-12-12'),
+('Robert Downey Jr','America','2017-12-12'),
+('Johnny Depp','America','2017-12-12'),
+('Ryan Reynolds','America','2017-12-12'),
+('Jessica Alba','America','2017-12-12'),
+('Scarlett Johansson','America','2017-12-12'),
+('Daniel Craig','English','2017-12-12'),
+('Idris Ebla','America','2017-12-12');    
+
+
+
+
+INSERT INTO movie (movieName, movieGenre, movieLength, movieRating, year) VALUES 
+('The Godfather', 'Drama/Crime', 2.58, 9.5, '1972'),
+('Inglourious Basterds', 'Drama/Action', 2.33, 8.3, '2009'),
+('Pulp Fiction', 'Crime/Thriller', 2.58, 8.9, '1994'),
+('Se7en', 'Thriller/Indie', 2.08, 8.6, '1995'),
+('Heat', 'Crime/Thriller', 2.52, 8.2, '1995'),
+('The Godfather Part II', 'Crime/Drama', 3.20, 9, '1974'),
+('Scarface', 'Thriller/Action', 2.50, 8.3, '1983'),
+('The Avengers', 'Fantasy/Sci-Fi', 2.23, 8.1, '2012'),
+('The Incredibles', 'Action/Adventure', 1.56, 8, '2004'),
+('The Hateful 8', 'Mystery/Crime', 3.07, 7.8, '2015'),
+('Kingsman: The Secret Service', 'Crime/Sci-Fi', 2.09, 7.7, '2014'),
+('Die Hard', 'Thriller/Action', 2.12, 8.2, '1988'),
+('Iron Man', 'Sci-Fi/Thriller', 2.06, 7.9, '2008'),
+('Sherlock Holmes', 'Thriller/Action', 2.10, 7.6, '2009'),
+('Taxi Driver', 'Crime/Drama', 1.54, 8.3, '1976'),
+('Goodfellas', 'Crime/Thriller', 2.28, 8.7, '1990'),
+('Don Jon', 'Drama/Romance', 1.30, 6.6, '2013'),
+('Rough Night', 'Comedy', 1.41, 5.2, '2017'),
+('Ghost in the Shell', 'Mystery/Crime', 2.00, 6.4, '2017'),
+('Fences', 'Drama', 2.19, 7.2, '2016'),
+('Suicide Squad', 'Fantasy/Sci-Fi', 2.17, 6.1, '2016'),
+('Fight Club', 'Drama', 2.31, 8.8, '1999'),
+('Gone Girl', 'Mystery/Thriller', 2.29, 8.1, '2014'),
+('Django Unchained', 'Blaxploitation/Drama', 2.45, 8.4, '2012');
+
+
+GRANT SELECT, INSERT, DELETE, UPDATE
+ON bobbieteriba_movies.*
+TO movie_user@localhost
+IDENTIFIED BY 'pa55word';
+
+GRANT SELECT
+ON movie
+TO movie_tester@localhost
+IDENTIFIED BY 'pa55word';

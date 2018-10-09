@@ -1,10 +1,16 @@
 
                                           CA2 Php Application
-Name: Omobolabo Bobbie Teriba
+                                          
+Name: Bobbie Omobolabo Teriba
+
 I created a movie and actor website to display a list of top movies and highly respected actors.
-The website contains an image slider with images of different movies. A list of top rated actors, the ‘top rated movies’ list is hardcoded into the website. There is another page that links to a list of ‘top rated actors’, all data being displayed on this page is coming from the database, the images, the actors list and the movies list.
+The website contains an image slider with images of different movies. A list of top rated actors, 
+the ‘top rated movies’ list is hardcoded into the website. There is another page that links to a list of ‘top rated actors’, 
+all data being displayed on this page is coming from the database, the images, the actors list and the movies list.
 Multiple actors can be in multiple movies which is why the third table was introduced. To allow for a one to many relationship
+
 Application Functionality: 
+
 •	Three tables – actor, movie, movie_actors
 •	Forms to add and update the actor and movie table
 •	Form select an actor and a movie into movie_actors table
@@ -17,11 +23,6 @@ Application Functionality:
 •	Data can be deleted from movie table and actor table
 •	Actors and their movie’s can be deleted from the movie_actors
 
-
-
-
-E.R. Diagram
- 
 
 Screencast Youtube Link:
 https://www.youtube.com/watch?v=xXMD39DJtbE
